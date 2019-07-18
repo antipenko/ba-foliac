@@ -40,7 +40,11 @@
       $('#goToSlide').on('change', function(){
           var numberOfSlide = $(this).val();
           $('.ba-slider').slick('slickGoTo', numberOfSlide);
-      })
+	  })
+	  
+	  $('.portfolio-examp').masonry({
+		itemSelector: '.portfolio-item',
+	});
 
 })(jQuery); 
     
