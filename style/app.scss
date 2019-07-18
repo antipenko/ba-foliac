@@ -218,3 +218,8 @@ button, .button{
     }
 }
 }
+
+.items-navi .nav-btn{
+  user-select: none;
+  pointer-events: none;
+}

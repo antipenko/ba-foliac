@@ -402,4 +402,11 @@ button, .button {
     background-color: yellow;
     height: 375px; }
 
+.items-navi .nav-btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none; }
+
 /*# sourceMappingURL=app.css.map */
