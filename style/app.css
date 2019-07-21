@@ -409,4 +409,8 @@ button, .button {
   user-select: none;
   pointer-events: none; }
 
+#map {
+  height: 400px;
+  width: 100%; }
+
 /*# sourceMappingURL=app.css.map */
