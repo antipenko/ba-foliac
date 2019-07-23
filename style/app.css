@@ -317,6 +317,8 @@ button, .button {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center; }
+  .ba-header_static {
+    position: relative; }
 
 .menu {
   display: -webkit-box;
@@ -412,5 +414,47 @@ button, .button {
 #map {
   height: 400px;
   width: 100%; }
+
+.login-page {
+  background-color: #afabab; }
+
+.ba-login {
+  max-width: 400px;
+  width: 100%;
+  margin: 4em auto;
+  border: 1px solid #3c4955;
+  padding: 4em 2em 3.5em;
+  border-radius: 5px; }
+
+.ba-form__row {
+  margin-bottom: 0.5em; }
+
+.ba-form label {
+  display: inline-block;
+  width: 30%; }
+
+.ba-form input {
+  height: 30px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 0 10px; }
+  .ba-form input:hover, .ba-form input:focus {
+    border-color: #48bf72; }
+
+.ba-form__submit {
+  min-width: 30%;
+  height: 30px;
+  border: 1px solid #eee;
+  border-radius: 5px;
+  padding: 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin: 0 auto; }
+  .ba-form__submit:hover, .ba-form__submit:focus {
+    background-color: #48bf72; }
 
 /*# sourceMappingURL=app.css.map */
