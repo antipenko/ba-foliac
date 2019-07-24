@@ -11,7 +11,6 @@ xhr.open('GET', 'info.json', true);
 // 3. Отсылаем запрос
 xhr.send(); // в body можем что то передавать
 
-
 xhr.onreadystatechange = function () {
     if (xhr.readyState != 4) return;
 
@@ -33,13 +32,76 @@ xhr.onreadystatechange = function () {
 }
 
 
-var btnGetUser = document.getElementById('getUser');
-
-btnGetUser.onclick = function () {
+var btnGetProducts = document.getElementById('getProducts');
+if (btnGetProducts){
+    btnGetProducts.onclick = function () {
     var xhr = new XMLHttpRequest();
-    xhr.open("GET", "https://reqres.in/api/products/4", true);
+    xhr.open("GET", "https://reqres.in/api/products/", true);
     xhr.onload = function () {
         console.log(xhr.responseText);
+        var products = JSON.parse(xhr.responseText);
+        console.log(products);
+        parseProducts(products);
     };
     xhr.send();
+}
+}
+
+function parseProducts(products){
+    var htmlProductList = document.getElementById('products');
+    var productsList = products.data;
+
+    console.log(productsList);
+
+    for (var j = 0; j < productsList.length; j++) {
+        let element = productsList[j];
+        console.log(element);
+        let product = document.createElement('li'),
+            productTitle = document.createElement('h3');
+            productTitle.innerText = element.name;
+				
+            product.appendChild(productTitle);
+            htmlProductList.appendChild(product);
+    }
+}
+
+
+
+// ajax for login, METHOD PUT
+
+var loginForm = document.getElementById('ba-login-form');
+
+
+loginForm.onsubmit = function(e){
+    e.preventDefault();
+
+    var xhrLogin = new XMLHttpRequest();
+
+    xhrLogin.open('POST', 'https://reqres.in/api/users', true);
+
+    var loginData = {
+        "name": "morpheus",
+        "job": "leader"
+    }
+
+    var loginRequestData = JSON.stringify(loginData);
+    console.log(loginRequestData);
+    xhrLogin.send(loginRequestData);
+
+    xhrLogin.onreadystatechange = function () {
+        if (xhrLogin.readyState != 4) return;
+    
+        // 4. Если код ответа сервера не 200, то это ошибка
+        if (xhrLogin.status != 200) {
+            // обработать ошибку
+            console.log(xhrLogin);
+            console.log(xhrLogin.status + ': ' + xhrLogin.statusText); // пример вывода: 404: Not Found
+        } else {
+            // вывести результат
+            console.log(xhrLogin);
+            console.log(xhrLogin.responseText); // responseText -- текст ответа.            
+    
+            console.log(JSON.parse(xhrLogin.responseText));
+        }
+    }
 }
