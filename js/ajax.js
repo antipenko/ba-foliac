@@ -67,10 +67,9 @@ function parseProducts(products){
 
 
 
-// ajax for login, METHOD PUT
+// ajax for login, METHOD POST
 
 var loginForm = document.getElementById('ba-login-form');
-
 
 loginForm.onsubmit = function(e){
     e.preventDefault();
@@ -85,7 +84,7 @@ loginForm.onsubmit = function(e){
     }
 
     var loginRequestData = JSON.stringify(loginData);
-    console.log(loginRequestData);
+
     xhrLogin.send(loginRequestData);
 
     xhrLogin.onreadystatechange = function () {
